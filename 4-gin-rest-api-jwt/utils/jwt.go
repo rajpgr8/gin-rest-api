@@ -17,3 +17,5 @@ func GenerateToken(email string, userId int64) (string, error) {
 
 	return token.SignedString([]byte(secretKey))
 }
+
+// See example to use jwt  https://github.com/snowflakedb/gosnowflake/blob/aa4b7cd4a56e74ac9871595a5e3625e9359ff3ab/auth.go#L482-L508
