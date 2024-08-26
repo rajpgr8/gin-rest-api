@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gin-rest-api
+  namespace: default
+  labels:
+    app: gin-rest-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gin-rest-api
+  template:
+    metadata:
+      labels:
+        app: gin-rest-api
+    spec:
+      containers:
+      - name: gin-rest-api
+        image: dhpush/rest-api:latest
+        ports:
+        - containerPort: 8080
