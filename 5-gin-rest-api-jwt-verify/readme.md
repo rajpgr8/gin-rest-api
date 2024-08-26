@@ -40,7 +40,7 @@ Connection: close
 ```
 
 ```
-3. Create an event with JWT:
+3. Create an event with JWT token got from previous login request (See point 1 above). 
 POST login.http -> click on 'Send Request'
 Example:
 POST http://localhost:8080/events
