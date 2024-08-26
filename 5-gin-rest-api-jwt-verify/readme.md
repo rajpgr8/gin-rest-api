@@ -66,6 +66,18 @@ Connection: close
   },
   "message": "Event created!"
 }
+
+You can also use CURL for this POST request:
+
+curl --location 'http://localhost:8080/events' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI0NjczMDg5LCJ1c2VySWQiOjB9.3lcSTvX0sxYmLmI6j36gWm0r6rNFXnTFAmsXqzKqWQA' \
+--header 'Content-Type: application/json' \
+--data '{
+  "name": "Test event 2",
+  "description": "Another test event",
+  "location": "A test location",
+  "dateTime": "2025-01-01T15:30:00.000Z"
+}'
 ```
 
 ![image](https://github.com/user-attachments/assets/075309e7-6e37-4c7e-88a4-4ea75b032022)
