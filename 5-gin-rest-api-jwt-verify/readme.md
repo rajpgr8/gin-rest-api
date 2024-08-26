@@ -1,3 +1,4 @@
+##### We want to restrict event creation to logged-in users only, ensuring that only authenticated users can create events. 
 ```
 go run .
 ```
