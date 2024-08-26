@@ -1,4 +1,5 @@
-##### We want to restrict event creation to logged-in users only, ensuring that only authenticated users can create events. 
+##### We want to restrict event creation to logged-in users only, ensuring that only authenticated users can create events.
+Once user is loggedn in a JWT (JSON Web Token) will be returned. Now if user wants to create an event (protected route), the JWT should be sent in the header. Like ```--header 'Authorization: <JWT-TOKEN>'```
 ```
 go run .
 ```
