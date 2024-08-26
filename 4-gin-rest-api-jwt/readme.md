@@ -32,10 +32,10 @@ Whenever the user wants to access a protected route or resource, the user agent 
 Authorization: Bearer <jwt-token>
 ```
 #### Deploy to K8S
-``
+```
 kubectl apply -f Deployment.yaml
 kubectl apply -f Service.yaml
 kubectl port-forward svc/gin-rest-api-svc 8080:8080
 
 Then Go to api-test folder, and test the end the endpoints.
-``
+```
