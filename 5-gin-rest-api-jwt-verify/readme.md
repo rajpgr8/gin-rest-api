@@ -1,29 +1,73 @@
 ```
 go run .
+```
 
-TEST:
-Go to api-test folder:
+```
+TEST: Go to api-test folder:
 1.
-GET  get-event.http -> click on 'Send Request'
-POST create-event.http -> click on 'Send Request'
-
-2.
-POST create-user.http -> click on 'Send Request'
-
-3.
 POST login.http -> click on 'Send Request'
-```
-```
+
+=>
 Login API Response:
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Mon, 26 Aug 2024 09:54:14 GMT
+Content-Length: 199
+Connection: close
+
 {
   "message": "Login successful!",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI0NjY4MzI2LCJ1c2VySWQiOjB9.FoNXi6S8jrHPRM0_pQUmXtcyasAnOAxfDTGOVcDKc_E"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI0NjczMjU0LCJ1c2VySWQiOjB9.yj7Sr04IwglYwmmprIcKKLaiRZ0WMBwm5xugkeV0Es8"
 }
 ```
 
-![image](https://github.com/user-attachments/assets/08487fbe-dbd2-492e-8dbb-5bbc08304168)
+```
+2. Try to create an event without passing JWT or with wrong JWT
+POST login.http -> click on 'Send Request' (without passing authorization header)
 
+=>
+Login API Response:
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json; charset=utf-8
+Date: Mon, 26 Aug 2024 09:56:41 GMT
+Content-Length: 29
+Connection: close
 
+{
+  "message": "Not authorized."
+}
+```
+
+```
+3. Create an event with JWT:
+POST login.http -> click on 'Send Request'
+Example:
+POST http://localhost:8080/events
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI0NjczMDg5LCJ1c2VySWQiOjB9.3lcSTvX0sxYmLmI6j36gWm0r6rNFXnTFAmsXqzKqWQA
+
+=>
+Login API Response:
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+Date: Mon, 26 Aug 2024 09:58:09 GMT
+Content-Length: 176
+Connection: close
+
+{
+  "event": {
+    "ID": 0,
+    "Name": "Test event 2",
+    "Description": "Another test event",
+    "Location": "A test location",
+    "DateTime": "2025-01-01T15:30:00Z",
+    "UserID": 0
+  },
+  "message": "Event created!"
+}
+```
+
+![image](https://github.com/user-attachments/assets/075309e7-6e37-4c7e-88a4-4ea75b032022)
 
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned. 
 
