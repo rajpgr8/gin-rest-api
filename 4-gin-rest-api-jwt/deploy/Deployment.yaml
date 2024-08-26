@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: gin-rest-api
-        image: dhpush/rest-api:0.1
+        image: dhpush/rest-api:0.2
         ports:
         - containerPort: 8080
